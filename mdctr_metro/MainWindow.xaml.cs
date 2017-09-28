@@ -73,7 +73,7 @@ namespace mdctr_metro
         private void createConfig()
         {
             JObject o1 = JObject.Parse(File.ReadAllText(@"config.json"));
-            Global.connection = $"Server={o1["host"]};userid={o1["user"]};password={o1["senha"]};Database={o1["db"]}";
+            Global.connection = $"Server={o1["host"]};userid={o1["usuario"]};password={o1["senha"]};Database={o1["db"]}";
         }
     }
 }
