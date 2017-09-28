@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow x:Class="mdctr_metro.Container"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:tabViews="clr-namespace:mdctr_metro.TabViews"
+        mc:Ignorable="d"
+        Title="Madrecita Deliceria - SISTEMA DE GESTÃO" Height="1080" Width="1920"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <TabControl TabStripPlacement="Left" Controls:TabControlHelper.Underlined="TabPanel">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
+                    <Setter Property="Controls:ControlsHelper.HeaderFontSize" Value="20" />
+                    <Setter Property="Height" Value="40"></Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Clientes">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <ToolBar Grid.Row="0">
+                        <Button Content="Adicionar" Style="{DynamicResource MetroCircleButtonStyle}"></Button>
+                        <Button Content="Editar"></Button>
+                        <Button Content="Excluir"></Button>
+                    </ToolBar>
+                    <DataGrid x:Name="gridvendas" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Path=LoadDataBinding}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=teste}" Header="teste" Width="100"
+IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=teste2}" Header="teste2" Width="100"
+IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=teste3}" Header="teste3" Width="150"
+IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=teste4}" Header="teste4" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=teste5}" Header="teste5" Width="120"
+IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Row="2" x:Name="loadbtn" Content="Atualizar" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Click="loadbtn_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Usuários">
+                <tabViews:UsuariosView DataContext="{Binding}" />
+            </TabItem>
+            <TabItem Header="Veículos">
+
+            </TabItem>
+            <TabItem Header="Produtos">
+
+            </TabItem>
+            <TabItem Header="Vendas">
+
+            </TabItem>
+            <TabItem Header="Orcamento">
+
+            </TabItem>     
+        </TabControl>
+
+    </Grid>
+</Controls:MetroWindow>
